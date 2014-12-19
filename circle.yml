@@ -1,0 +1,11 @@
+dependencies:
+  pre:
+    - pip install -r tests/requirements/py2.txt
+
+test:
+  override:
+    - "PYTHONPATH=..:$PYTHONPATH coverage run ./runtests.py --settings=test_sqlite --selenium admin_inlines":
+        pwd: ./tests
+  post:
+    - coverage report
+    - coverage html -d $CIRCLE_ARTIFACTS/coverage

@@ -1,6 +1,7 @@
 dependencies:
   pre:
     - pip install -r tests/requirements/py2.txt
+    - pip install coverage
 
 test:
   override:

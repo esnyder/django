@@ -5,9 +5,9 @@ dependencies:
 
 test:
   override:
-    - "PYTHONPATH=..:$PYTHONPATH coverage run ./runtests.py --settings=test_sqlite --selenium --verbosity=3":
+    - "PYTHONPATH=..:$PYTHONPATH coverage run --source .. ./runtests.py --settings=test_sqlite --selenium --verbosity=2":
         pwd: ./tests
   post:
     - coverage report: {pwd: ./tests}
-    - coverage html -d $CIRCLE_ARTIFACTS/coverage: {pwd: ./tests}
+
 
